@@ -23,9 +23,12 @@ where the fields are as follows:
 
 首先需要使用内存追踪模式`GODEBUG=gctrace=1 ` 启动程序之后，我们就可以在控制台查看内存和调度器的trace。
 
+
+
 自动回收的时候会打印信息。
 
-```
+```shell
+# GODEBUG=gctrace=1 go run main.go
 # command-line-arguments
 gc 1 @0.004s 2%: 0.010+1.5+0.007 ms clock, 0.13+0.13/1.6/1.8+0.084 ms cpu, 4->5->4 MB, 5 MB goal, 12 P
 # command-line-arguments
@@ -40,7 +43,8 @@ gc 1 @0.002s 87%: 22+0.47+0.11 ms clock, 269+0.25/0.27/0+1.3 ms cpu, 459->459->4
 
 还可以通过设置`schedtrace=X` ，运行之后每Xms发出一个调度器摘要信息,同时加上`scheddetail=1` 可以看到更多信息：
 
-```
+```shell
+  #  GODEBUG=schedtrace=1000,scheddetail=1  go run tmp.go
   P9: status=0 schedtick=0 syscalltick=0 m=-1 runqsize=0 gfreecnt=0 timerslen=0
   P10: status=0 schedtick=0 syscalltick=0 m=-1 runqsize=0 gfreecnt=0 timerslen=0
   P11: status=0 schedtick=0 syscalltick=0 m=-1 runqsize=0 gfreecnt=0 timerslen=0
