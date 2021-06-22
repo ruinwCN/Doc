@@ -63,7 +63,7 @@ gc 1 @0.002s 87%: 22+0.47+0.11 ms clock, 269+0.25/0.27/0+1.3 ms cpu, 459->459->4
 
 Code:
 
-> https://github.com/ruinwCN/example/blob/master/go/go-gctrace/example-go-gctrance.go
+> https://github.com/ruinwCN/examples/blob/master/go/go-gctrace/example-go-gctrance.go
 
 ### tool
 
@@ -89,7 +89,7 @@ Minimum mutator utilization：最低 Mutator 利用率
 
 示例代码
 
-> https://github.com/ruinwCN/example/blob/master/go/go-gctrace/example-go-gctrance-trance.go
+> https://github.com/ruinwCN/examples/blob/master/go/go-gctrace/example-go-gctrance-trance.go
 
 
 
