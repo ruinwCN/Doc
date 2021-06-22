@@ -19,7 +19,7 @@ where the fields are as follows:
 	# P         number of processors used
 ```
 
-## 使用说明
+### 使用说明
 
 首先需要使用内存追踪模式`GODEBUG=gctrace=1 ` 启动程序之后，我们就可以在控制台查看内存和调度器的trace。
 
@@ -65,7 +65,36 @@ Code:
 
 > https://github.com/ruinwCN/example/blob/master/go/go-gctrace/example-go-gctrance.go
 
+### tool
+
+你还可以再代码中加入输出 trace
+
+选项：
+
+```
+View trace：查看跟踪
+Goroutine analysis：Goroutine 分析
+Network blocking profile：网络阻塞概况
+Synchronization blocking profile：同步阻塞概况
+Syscall blocking profile：系统调用阻塞概况
+Scheduler latency profile：调度延迟概况
+User defined tasks：用户自定义任务
+User defined regions：用户自定义区域
+Minimum mutator utilization：最低 Mutator 利用率
+```
+
+看到相应的信息
+
+![1](https://github.com/ruinwCN/Doc/blob/main/golang/go-gctrace.assets/1.png)
+
+示例代码
+
+> https://github.com/ruinwCN/example/blob/master/go/go-gctrace/example-go-gctrance-trance.go
 
 
 
+### 参考/引用
 
+> https://golang.org/pkg/runtime/
+>
+> https://segmentfault.com/a/1190000019736288
