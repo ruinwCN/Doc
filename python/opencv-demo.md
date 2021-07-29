@@ -55,6 +55,18 @@ putText
 
 cv.LINE_AA 抗锯齿。
 
+
+
+write
+
+```
+cv.CV_IMWRITE_JPEG_QUALITY  设置图片格式为.jpeg或者.jpg的图片质量，其值为0---100（数值越大质量越高），默认95
+cv.CV_IMWRITE_WEBP_QUALITY  设置图片的格式为.webp格式的图片质量，值为0--100
+cv.CV_IMWRITE_PNG_COMPRESSION  设置.png格式的压缩比，其值为0--9（数值越大，压缩比越大），默认为3
+```
+
+code
+
 ```
 def pic():
     src = cv.imread('bg.jpg')
