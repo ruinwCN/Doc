@@ -1,2 +1,3 @@
-# Doc
-document
+# notes
+Simple notes
+
