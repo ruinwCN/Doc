@@ -93,7 +93,60 @@ for s = 0 to n - m
 const PrimeRK = 16777619
 ```
 
+### 3. builder.go
 
+```go
+// String returns the accumulated string.
+func (b *Builder) String() string {
+	return *(*string)(unsafe.Pointer(&b.buf))
+}
+```
+
+对比bytes
+
+```
+// String returns the contents of the unread portion of the buffer
+// as a string. If the Buffer is a nil pointer, it returns "<nil>".
+//
+// To build strings more efficiently, see the strings.Builder type.
+func (b *Buffer) String() string {
+   if b == nil {
+      // Special case, useful in debugging.
+      return "<nil>"
+   }
+   return string(b.buf[b.off:])
+}
+```
+
+#### [unsafe.Pointer](https://pkg.go.dev/unsafe#Pointer)
+
+文档内说明了pointer能做什么
+
+```
+- A pointer value of any type can be converted to a Pointer.
+- A Pointer can be converted to a pointer value of any type.
+- A uintptr can be converted to a Pointer.
+- A Pointer can be converted to a uintptr.
+```
+
+本质上是uint指针, unsafer.Point 可以在需要的时候任意转换。可以将任意指针转换为pointer再转换为其他指针。（内存要保证变换后的不大于变换前）
+
+(1) 将 *T1 转换为指向 *T2 的指针
+
+T2的内存要小于等于T1的内存
+
+```
+func Float64bits(f float64) uint64 {
+	return *(*uint64)(unsafe.Pointer(&f))
+}
+```
+
+```
+var s string
+hdr := (*reflect.StringHeader)(unsafe.Pointer(&s)) // case 1
+hdr.Data = uintptr(unsafe.Pointer(p))              // case 6 (this case)
+hdr.Len = n
+```
 
 #### 参考
 
