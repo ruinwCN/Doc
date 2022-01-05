@@ -66,3 +66,27 @@ const (
 ```
 Unread的时候减去相对应的长度
 
+### 1.reader.go
+
+实现了
+
+io.Reader, io.ReaderAt, io.WriterTo, io.Seeker,io.ByteScanner, and io.RuneScanner interfaces
+
+在操作rune时候一样需要注意Rune需要decode
+
+```
+func DecodeRune(p []byte) (r rune, size int)
+```
+
+### 2. bytes.go
+
+Index 和 strings是一样的。 根据长度选择具体算法。
+
+
+
+tips:  simple export func
+
+```
+// Export func for testing
+var IndexBytePortable = indexBytePortable
+```
